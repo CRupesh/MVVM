@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="regModel"
+            type="com.one.pay.attendance.Login.Registration.RegViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_regEmpNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{(editable)->regModel.afterEmpNoTextChange(editable)}"
+            android:layout_margin="2dp"/>
+
+        <EditText
+            android:id="@+id/edt_regPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{(editable)->regModel.afterPwdTextChange(editable)}"
+            android:layout_margin="2dp"/>
+
+        <EditText
+            android:id="@+id/edt_redMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{(editable)->regModel.afterMobileTextChange(editable)}"
+            android:layout_margin="2dp"/>
+
+        <Button
+            android:id="@+id/btn_regEmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:onClick="@{()->regModel.onRegisterClick()}"
+            android:text="Register"/>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name = "loginViewModel"
+            type = "com.one.pay.attendance.Login.LoginViewModel"
+            />
+    </data>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp">
+
+            <EditText
+                android:id="@+id/edt_empNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:afterTextChanged="@{(editable)->loginViewModel.afterEmpNoInput(editable)}"
+                android:inputType="number"/>
+
+
+            <EditText
+                android:id="@+id/edt_empPwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:afterTextChanged="@{(editable)->loginViewModel.afterPasswordInput(editable)}"
+                android:inputType="textPassword"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <!--bind:toasMsg="@{loginViewModel.toastMsg}"-->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->loginViewModel.onLoginClick()}"
+                    android:text="Login"
+                    android:gravity="center"
+                    android:layout_weight="3"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->loginViewModel.onRegisterClick()}"
+                    android:text="Register"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+</layout>
